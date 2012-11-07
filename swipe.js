@@ -10,6 +10,7 @@
     var yEnd = null;
     
     $(document).bind('touchstart', function(e){
+		 xEnd = yEnd = null;
          xStart = e.originalEvent.changedTouches[0].pageX;
          yStart = e.originalEvent.changedTouches[0].pageY;        
     });
