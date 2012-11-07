@@ -14,6 +14,7 @@
         yEnd = e.originalEvent.changedTouches[0].pageY;
         var vOffset = Math.abs(yEnd - yStart)
       
+        // Is it an horizontal swipe?
         if(vOffset < 5)
             e.preventDefault()
     });
