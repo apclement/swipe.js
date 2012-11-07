@@ -1,4 +1,9 @@
 (function( $ ) {
+
+  $.swipe = { vThreshold: 5, hThreshold: 50 } 
+
+  $(document).ready(function(){
+
     var xStart = null;
     var yStart = null;
     var xEnd = null;
@@ -15,7 +20,7 @@
         var vOffset = Math.abs(yEnd - yStart)
       
         // Is it an horizontal swipe?
-        if(vOffset < 5)
+        if(vOffset < $.swipe.vThreshold)
             e.preventDefault()
     });
     
@@ -23,10 +28,10 @@
         if (xEnd){
           var hOffset = xEnd - xStart;
          
-          if (hOffset > 30){
+          if (hOffset > $.swipe.hThreshold){
               $(e.target).trigger('swiperight');            
           }
-          if (hOffset < -30){
+          if (hOffset < -$.swipe.hThreshold){
               $(e.target).trigger('swipeleft');            
           }
         }
@@ -34,6 +39,6 @@
         xStart = yStart = xEnd = yEnd = null;
         
     });
-      
+ });
     
 })(jQuery);
